@@ -5,10 +5,6 @@ require_relative "debug_logger/configuration"
 require_relative "debug_logger/version"
 
 module DebugLogger
-  class << self
-    attr_accessor :configuration, :logger
-  end
-
   def self.configuration
     @configuration ||= Configuration.new
   end
@@ -35,20 +31,19 @@ module DebugLogger
 
     line_part_length = ((78 - title.length) / 2.0).to_i
     line_part = line_char * line_part_length
-    pre = [line_part, title, line_part].join(' ')
+    pre = [line_part, title, line_part].join(" ")
 
-    message ||= yield if block_given?
+    message ||= yield if block
 
     logger.info pre
     case message
-      when Hash
-        logger.info JSON.pretty_generate(message)
-      when String
-        logger.info message
-      else
-        logger.info message.inspect
+    when Hash
+      logger.info JSON.pretty_generate(message)
+    when String
+      logger.info message
+    else
+      logger.info message.inspect
     end
     logger.info line_char * pre.length
   end
 end
-
