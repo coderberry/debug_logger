@@ -26,6 +26,8 @@ module DebugLogger
   end
 
   def self.log(message: nil, title: nil, &block)
+    ensure_log_dir_exists!
+
     title ||= configuration.default_title
     line_char ||= configuration.line_char
 
@@ -45,5 +47,9 @@ module DebugLogger
       logger.info message.inspect
     end
     logger.info line_char * pre.length
+  end
+
+  def self.ensure_log_dir_exists!
+    FileUtils.mkdir_p(File.dirname(configuration.log_file))
   end
 end
