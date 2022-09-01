@@ -3,7 +3,7 @@
 require_relative "lib/debug_logger/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "debug_logger"
+  spec.name = "debug-logger"
   spec.version = DebugLogger::VERSION
   spec.authors = ["Eric Berry"]
   spec.email = ["eric@berry.sh"]

@@ -6,11 +6,11 @@ When `puts` isn't enough.
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add debug_logger
+    $ bundle add debug-logger
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install debug_logger
+    $ gem install debug-logger
 
 ## Usage
 
@@ -18,6 +18,8 @@ Simply add the gem to your Gemfile and run `bundle install`. If you are using Ra
 
 ```ruby
 # config/initializers/debug_logger.rb
+require "debug_logger"
+
 DebugLogger.configure do |config|
   config.default_title = 'DEBUG'
   config.log_file = 'log/debug.log' # or "log/#{Rails.env}.log"

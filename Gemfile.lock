@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    debug_logger (0.1.0)
+    debug-logger (0.1.0)
       semantic_logger (~> 4.11.0)
 
 GEM
@@ -71,7 +71,7 @@ PLATFORMS
   arm64-darwin-21
 
 DEPENDENCIES
-  debug_logger!
+  debug-logger!
   minitest (~> 5.0)
   pry
   pry-nav
