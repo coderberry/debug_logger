@@ -1,24 +1,22 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe DebugLogger do
   before do
     DebugLogger.configure do |config|
-      config.default_title = 'DEBUG'
-      config.log_file = './log/debug.log'
-      config.line_char = '*'
+      config.default_title = "DEBUG"
+      config.log_file = "./log/debug.log"
+      config.line_char = "*"
     end
   end
 
-  context 'with default configuration' do
+  context "with default configuration" do
     before do
       DebugLogger.reset
     end
 
-    it 'logs to the logfile' do
-      ts = Time.now
-      ts_str = ts.strftime('%Y-%m-%d %H:%M:%S.%L')
-      Timecop.freeze(ts) do
-        DebugLogger.log(message: 'test')
+    it "logs to the logfile" do
+      Timecop.freeze(Time.now) do
+        DebugLogger.log(message: "test")
 
         log_output = File.read(DebugLogger.configuration.log_file)
 

@@ -1,6 +1,6 @@
-require 'pry'
-require 'debug_logger'
-require 'timecop'
+require "pry"
+require "debug_logger"
+require "timecop"
 
 RSpec.configure do |config|
   config.after(:each) do
